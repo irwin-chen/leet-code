@@ -7,10 +7,10 @@ var pivotIndex = function(nums) {
         let a = 0
         let b = 0;
         if (i === 0) {
-          nums.slice(1).forEach(element => b += element);
+            b = nums.slice(1).reduce((p,c) => p+c,0);
         } else {
-            nums.slice(0,i).forEach(element => a += element);
-            nums.slice(i+1).forEach(element => b += element)
+            a = nums.slice(0,i).reduce((p,c) => p+c,0);
+            b = nums.slice(i+1).reduce((p,c) => p+c,0);
         }
         if (a === b) {
             return i;
